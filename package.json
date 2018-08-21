@@ -36,7 +36,7 @@
     "http-status": "1.0.1",
     "inert": "5.1.0",
     "joi": "10.6.0",
-    "lodash": "4.17.4",
+    "lodash": "4.17.10",
     "newrelic": "2.2.0",
     "vision": "5.3.3"
   },
