@@ -1,7 +1,7 @@
 {
   "app": {
     "port": "3030",
-    "name": "hapi-starter-kit",
+    "name": "instock-api",
     "logLevel": "info"
   }
 }

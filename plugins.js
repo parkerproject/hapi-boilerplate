@@ -8,11 +8,12 @@ const Vision = require('vision')
 const HapiSwagger = require('hapi-swagger')
 const Good = require('good')
 const config = require('config')
+const HapiApiVersion = require('hapi-api-version')
 
 /**
  * Internal modules
  */
-const Package = require('./package.json')
+const { hapiApiVersionOptions, goodOptions, swaggerOptions } = require('./pluginOptions')
 
 const DEVELOPMENT = 'development'
 
@@ -22,33 +23,30 @@ const DEVELOPMENT = 'development'
  */
 let plugins = []
 
+
+
 if (config.util.getEnv('NODE_ENV') === DEVELOPMENT) {
 
   // add hapi swagger integration
-  plugins = plugins.concat([Inert,
+  plugins = plugins.concat([
+    Inert,
     Vision,
     {
-      register: HapiSwagger,
-      options: {
-        info: {
-          'title': Package.description,
-          'version': Package.version
-        },
-        pathPrefixSize: 4
-      }
-    }])
+      plugin: HapiSwagger,
+      options: swaggerOptions
+    },
+    {
+      plugin: HapiApiVersion,
+      options: hapiApiVersionOptions
+    }
+  ])
 
   // add good console for log reporting
   plugins.push({
-    register: Good,
-    options: {
-      reporters: {
-        console: [{
-          module: 'good-console'
-        }, 'stdout']
-      }
-    }
+    plugin: Good,
+    options: goodOptions
   })
 }
+
 
 module.exports = plugins
