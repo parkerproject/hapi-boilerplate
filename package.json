@@ -1,12 +1,12 @@
 {
-  "name": "instock-api",
+  "name": "hapi-api",
   "version": "1.0",
-  "description": "Instock API",
+  "description": "Hapi boilerplate",
   "author": "Parker Ituk",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ascential/instock-octopus.git"
+    "url": "https://github.com/parkerproject/hapi-boilerplate.git"
   },
   "main": "index.js",
   "engines": {
